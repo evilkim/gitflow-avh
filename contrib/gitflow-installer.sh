@@ -71,7 +71,7 @@ install)
 		echo "Using existing repo: $REPO_NAME"
 	else
 		echo "Cloning repo from GitHub to $REPO_NAME"
-		git clone "$REPO_HOME" "$REPO_NAME"
+		git clone "$REPO_HOME" "$REPO_NAME" || exit
 	fi
 	cd "$REPO_NAME"
 	git pull
