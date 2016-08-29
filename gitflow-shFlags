@@ -356,9 +356,10 @@ _flags_define()
 	# append flag names to name lists
 	__flags_shortNames="${__flags_shortNames}${_flags_short_} "
 	__flags_longNames="${__flags_longNames}`_flags_removeExclamationName ${_flags_name_}` "
-	if [ ${_flags_type_} -eq ${__FLAGS_TYPE_BOOLEAN} \
-	  -a  ${_flags_isNegate_} -eq ${FLAGS_TRUE} ]; then
+	if [ ${_flags_type_} -eq ${__FLAGS_TYPE_BOOLEAN} ]; then
+	  if [ ${_flags_isNegate_} -eq ${FLAGS_TRUE} ]; then
 		__flags_boolNames="${__flags_boolNames}no${_flags_name_} "
+	  fi
 	fi
 
 	# append flag names to defined names for later validation checks
